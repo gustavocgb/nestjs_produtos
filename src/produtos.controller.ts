@@ -7,27 +7,27 @@ export class ProdutosController {
   constructor(private produtoService: ProdutoService) {}
   
   @Get()
-  obterTodos(): Produto[] {
+  async obterTodos(): Promise<Produto[]> {
     return this.produtoService.obterTodos()
   }
 
   @Get(':id')
-  obterUm(@Param() params): Produto {
+  async obterUm(@Param() params): Promise<Produto> {
     return this.produtoService.obterUm(params.id)
   }
 
   @Post()
-  criar(@Body() produto: Produto) {
+  async criar(@Body() produto: Produto) {
     this.produtoService.criar(produto)
   }
 
   @Put()
-  alterar(@Body() produto: Produto): Produto {
+  async alterar(@Body() produto: Produto): Promise<[number, Produto[]]> {
     return this.produtoService.alterar(produto)
   }
 
   @Delete(':id')
-  deletar(@Param() params) {
+  async deletar(@Param() params) {
     this.produtoService.deletar(params.id)
   }
 

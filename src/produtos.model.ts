@@ -1,15 +1,28 @@
+import { Column, DataType, Model, Table } from "sequelize-typescript"
 
-export class Produto {
+@Table
+export class Produto extends Model<Produto> {
 
-  id: number
+  /* id: number */
+
+  @Column({
+    type: DataType.STRING(60),
+    allowNull: false
+  })
   cod: string
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false
+  })
   name: string
+
+  @Column({
+    type: DataType.DECIMAL(10, 2),
+    allowNull: false
+  })
   price: number
 
-  constructor(cod: string, name: string, price: number) {
-    this.cod = cod
-    this.name = name
-    this.price = price
-  }
+  
   
 }
