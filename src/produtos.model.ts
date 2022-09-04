@@ -11,7 +11,5 @@ export class Produto {
     this.name = name
     this.price = price
   }
-
-
   
 }
